@@ -25,3 +25,12 @@ end
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
+
+Post.find_or_create_by!(
+  title: "I created title",
+  body: "I created body"
+)
+puts "#{Post.count} posts created"
+
+Comment.find_or_create_by!(post:posts.sample, body: "sexy body")
+puts "#{Comment.count} comments created"
