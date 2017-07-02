@@ -16,6 +16,15 @@ end
 topics = Topic.all
 
 50.times do
+  SponsoredPost.create!(
+    topic: topics.sample,
+    title: RandomData.random_sentence,
+    body: RandomData.random_paragraph
+  )
+end
+sponsored_posts = SponsoredPost.all
+
+50.times do
   Post.create!(
     topic: topics.sample,
     title: RandomData.random_sentence,
