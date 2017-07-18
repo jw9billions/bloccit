@@ -15,4 +15,10 @@
       <%= link_to "Delete Post", [@post.topic, @post], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete the post?'} %>
     </div>
   <% end %>
+  <% if user_is_authorized_for_post_except_delete?(@post) %>
+    <div class="col-md-4">
+      <%= link_to "Create", topic_post_path(@post.topic, @post), class: 'btn btn-success' %>
+      <%= link_to "Update Post", [@post.topic, @post], method: :patch, class: 'btn btn-success' %>
+    </div>
+  <% end %>
 </div>
