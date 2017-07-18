@@ -12,7 +12,4 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
-
-  before_action :require_sign_in, except: :show
-
 end
