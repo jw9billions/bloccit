@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       create_session(user)
-      flash[:notice] = 'Welcome, #{user.name}'
+      flash[:notice] = "Welcome, #{user.name}!"
       redirect_to root_path
     else
       flash.now[:alert] = 'Invalid email/password combination'
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     destroy_session(current_user)
-    flash[:notice] = 'You have been signed out, come back soon!'
+    flash[:notice] = "You've been signed out, come back soon!"
     redirect_to root_path
   end
 end
