@@ -6,6 +6,7 @@ RSpec.describe User, type: :model do
   it { is_expected.to have_many(:posts) }
   it { is_expected.to have_many(:comments) }
   it { is_expected.to have_many(:votes) }
+  it { is_expected.to have_many(:favorites) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_length_of(:name).is_at_least(1) }
 
@@ -19,17 +20,17 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_length_of(:password).is_at_least(6) }
 
   describe "invalid user" do
-     let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
-     let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
+    let(:user_with_invalid_name) { build(:user, name: "") }
+    let(:user_with_invalid_email) { build(:user, email: "") }
 
-     it "should be an invalid user due to blank name" do
+    it "should be an invalid user due to blank name" do
        expect(user_with_invalid_name).to_not be_valid
-     end
+    end
 
-     it "should be an invalid user due to blank email" do
+    it "should be an invalid user due to blank email" do
        expect(user_with_invalid_email).to_not be_valid
-     end
-   end
+    end
+  end
 
    describe "attributes" do
 
