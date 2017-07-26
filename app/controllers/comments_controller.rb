@@ -42,4 +42,9 @@ class CommentsController < ApplicationController
        redirect_to [comment.post.topic, comment.post]
      end
   end
+
+  def show
+    @post = Post.find(params[:post_id])
+    comment = @post.comments.find(params[:id])
+  end
 end

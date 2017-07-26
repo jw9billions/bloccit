@@ -9,11 +9,16 @@
         </div>
       <% end %>
       <div class="media-body">
-        <h2 class="media-heading"><%= @user.name %></h2>
-        <small>
-          <%= pluralize(@user.posts.count, 'post') %>,
-          <%= pluralize(@user.comments.count, 'comment') %>
-        </small>
+        <% if no_content(@user) %>
+          <%= "#{@user.name} has not submitted any posts yet." %>
+        <% else %>
+          <small>
+            <%= pluralize(@user.posts.count, 'post') %>,
+            <%= pluralize(@user.comments.count, 'comment') %>,
+            <%= pluralize(@user.posts.favorite.count, 'posts') %>,
+            <%= pluralize(@user.posts.vote.count, 'votes') %>,  
+          </small>
+        <% end %>
       </div>
     </div>
   </div>

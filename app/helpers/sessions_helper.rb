@@ -10,4 +10,8 @@ module SessionsHelper
   def current_user
     User.find_by(id: session[:user_id])
   end
+
+  def no_content(user)
+    user.posts.count == 0 && user.comments.count == 0
+  end
 end
