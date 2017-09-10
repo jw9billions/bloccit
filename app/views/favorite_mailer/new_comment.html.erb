@@ -11,11 +11,8 @@
       <%= @comment.body %>
     </p>
     <p>
-<<<<<<< HEAD
-      <%= link_to "View comment on site", topic_post-url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
-=======
       <%= link_to "View comment on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
->>>>>>> cp31
+      <%= link_to "View comment on site", topic_post_url(@post.topic, @post, anchor: "comment-#{@comment.id}") %>
     </p>
   </body>
 </html>

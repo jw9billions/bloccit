@@ -4,14 +4,6 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :favorites, dependent: :destroy
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-=======
->>>>>>> cp31
-
->>>>>>> cp32
 
   before_save { self.email = email.downcase if email.present? }
   before_save { self.role ||= :member }
@@ -31,15 +23,10 @@ class User < ActiveRecord::Base
   def favorite_for(post)
     favorites.where(post_id: post.id).first
   end
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
   def avatar_url(size)
     gravatar_id = Digest::MD5::hexdigest(self.email).downcase
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
->>>>>>> cp32
-=======
->>>>>>> cp31
+
 end

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  post 'posts/:id/comments' => post_comments_path
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
