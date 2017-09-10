@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  post 'posts/:id/comments' => post_comments_path
+  #post 'post_comments_path' => 'posts/:id/comments' 
 
 
 
