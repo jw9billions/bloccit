@@ -3,6 +3,7 @@ include SessionsHelper
 
 RSpec.describe FavoritesController, type: :controller do
 <<<<<<< HEAD
+<<<<<<< HEAD
   let(:my_user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
   let(:my_topic) { Topic.create!(name:  RandomData.random_sentence, description: RandomData.random_paragraph) }
   let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: my_user) }
@@ -11,6 +12,11 @@ RSpec.describe FavoritesController, type: :controller do
   let(:my_user) {create(:user)}
   let(:my_post) {create(:post, topic: my_topic, user: my_user)}
 >>>>>>> cp32
+=======
+  let(:my_user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
+  let(:my_topic) { Topic.create!(name:  RandomData.random_sentence, description: RandomData.random_paragraph) }
+  let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph, user: my_user) }
+>>>>>>> cp31
 
   context 'guest user' do
     describe 'POST create' do
@@ -20,6 +26,9 @@ RSpec.describe FavoritesController, type: :controller do
       end
     end
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cp31
 
     describe 'DELETE destroy' do
       it 'redirects the user to the sign in view' do
@@ -28,8 +37,11 @@ RSpec.describe FavoritesController, type: :controller do
         expect(response).to redirect_to(new_session_path)
       end
     end
+<<<<<<< HEAD
 =======
 >>>>>>> cp32
+=======
+>>>>>>> cp31
   end
 
   context 'signed in user' do
@@ -39,6 +51,9 @@ RSpec.describe FavoritesController, type: :controller do
 
     describe 'POST create' do
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cp31
        it 'redirects to the posts show view' do
          post :create, { post_id: my_post.id }
          expect(response).to redirect_to([my_topic, my_post])
@@ -64,6 +79,7 @@ RSpec.describe FavoritesController, type: :controller do
 
           delete :destroy, { post_id: my_post.id, id: favorite.id }
           expect( my_user.favorites.find_by_post_id(my_post.id) ).to be_nil
+<<<<<<< HEAD
 =======
       it 'redirects to the posts show view' do
         post :create, { post_id: my_post.id }
@@ -75,6 +91,8 @@ RSpec.describe FavoritesController, type: :controller do
         post :create, { post_id: my_post.id }
         expect(my_user.favorites.find_by_post_id(my_post.id)).not_to be_nil
 >>>>>>> cp32
+=======
+>>>>>>> cp31
       end
     end
   end

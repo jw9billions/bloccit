@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cp31
 
 =======
 >>>>>>> cp32
